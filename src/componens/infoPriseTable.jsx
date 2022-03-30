@@ -12,8 +12,10 @@ function IPT() {
         infocar3 = Object.values(infocar2);
     });
     const [asyncData, setAsyncData] = useState(null);
-    let infocar = infocar3
-    console.log(infocar)
+    const [infocar, setInfo] = useState();
+    setTimeout(() => {
+        setInfo(infocar3);
+    }, 5000);
     useEffect(() => {
         setTimeout(() => {
             setAsyncData("something");
