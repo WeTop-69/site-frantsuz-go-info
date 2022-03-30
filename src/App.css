@@ -274,6 +274,41 @@ input, textarea, select {
   border-radius: 37px;
   background-color: #2C2C2D;
 }
+.actv{
+  width: 50% !important;
+}
+.diss{
+  width: 37% !important;
+}
+.text-actv{
+  font-size: 13px !important;
+  color: #A3A3A3 !important;
+  margin-top: 7px !important;
+}
+.text-diss{
+  font-size: 13px !important;
+  color: #2C2C2D !important;
+}
+.text-actv2{
+  font-size: 13px !important;
+  color: #2C2C2D !important;
+}
+.text-actv15{
+  margin-right: 16px !important;
+}
+.text-actv3{
+  font-size: 13px !important;
+  color: #A3A3A3 !important;
+}
+.status-active{
+  background-color: #A3A3A3 !important;
+  color: #2C2C2D !important;
+}
+.status-dis{
+  background-color: #A3A3A3 !important;
+  color: #2C2C2D !important;
+  font-size: 18px !important;
+}
 .btn-filter{
   width: 33%;
   height: 37px;
@@ -285,7 +320,7 @@ input, textarea, select {
 .btn-text{
   margin-top: 10px;
   float: right;
-  font-size: 10.5px !important;
+  font-size: 10.5px;
   margin-right: 10px;
 }
 .btn-blok{
@@ -590,6 +625,7 @@ a{
 }
 .table-block-info{
   overflow: auto;
+  height: 90vh;
 }
 .type-name-info{
   display: flex;

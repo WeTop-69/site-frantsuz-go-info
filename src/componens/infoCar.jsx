@@ -8,12 +8,41 @@ import { Link } from 'react-router-dom';
 import Loader from './loader';
 import InfoPrase from './infoPrase';
 import IPT from './infoPriseTable';
+import IPTA from './infoPriseTableAktive';
 function InfoCar(props, data) {
   function sayHi() {
     var bb = document.querySelector('#loader');
     bb.className = 'loader-position none';
   }
   setTimeout(sayHi, 7000);
+  function her34() {
+      var cdo2 = document.querySelector('#east');
+      cdo2.className = 'none';
+      var cdo = document.querySelector('#netu');
+      cdo.className = '';
+      var cdo3 = document.querySelector('#her34');
+      cdo3.className = 'btn-histori actv status-active';
+      var cdo4= document.querySelector('#her32');
+      cdo4.className = 'btn-filter diss ';
+      var cdo5= document.querySelector('#text-diss2');
+      cdo5.className = 'btn-text text-actv15  text-actv text-actv3 ';
+      var cdo6 = document.querySelector('#text-diss');
+      cdo6.className = 'text-histori text-actv2 text-diss';
+  }
+  function her32() {
+      var cdo2 = document.querySelector('#east');
+      cdo2.className = '';
+      var cdo = document.querySelector('#netu');
+      cdo.className = 'none';
+      var cdo3 = document.querySelector('#her34');
+      cdo3.className = 'btn-histori actv';
+      var cdo4= document.querySelector('#her32');
+      cdo4.className = 'btn-filter diss status-dis';
+      var cdo5= document.querySelector('#text-diss2');
+      cdo5.className = 'btn-text text-actv15 text-actv text-actv2';
+      var cdo6 = document.querySelector('#text-diss');
+      cdo6.className = 'text-histori text-actv3';
+  }
   return (
     <div className="main">
       <div id='loader' className="loader-position">
@@ -24,17 +53,13 @@ function InfoCar(props, data) {
             <img className='logo' src={logo}/>
           </a>
           <div className="btn-blok">
-            <div className="btn-histori">
-              <Link to={`/firebase-taxi-app-info/`}>
-                <img className='histori-icon' src={histori}/>
-                <div className='btn-text'>
-                  <div className="text-histori">история заказов</div>
+            <div  onClick={her34} id="her34" className="btn-histori actv">
+                <div className='btn-text text-actv'>
+                  <div id="text-diss" className="text-histori text-actv3"> завершенные</div>
                 </div>
-              </Link>
             </div>
-            <div className="btn-filter">
-              <img className='filter-icon' src={filter}/>
-              <div className='btn-text'>фильтр</div>
+            <div onClick={her32} id="her32" className="btn-filter diss status-dis">
+              <div id="text-diss2" className='btn-text text-actv15 text-actv text-actv2'>текущие</div>
             </div>
           </div>
           <div className="border">
@@ -53,8 +78,9 @@ function InfoCar(props, data) {
               <div className="type-info prise">ЦЕНА</div>
             </div>
           </div>
-          <div className="table-block-info">
+          <div id='her333' className="table-block-info">
             <IPT/>
+            <IPTA/>
           </div>
         </div>
     </div>

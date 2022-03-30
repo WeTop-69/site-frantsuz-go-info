@@ -6,7 +6,7 @@ import InfoPrase from './infoPrase';
 function IPT() {
     let infocar3 = []
     const dbRef =  getDatabase();
-    const btnInfo2 = ref(dbRef, 'trips');
+    const btnInfo2 = ref(dbRef, 'trips/current');
     onValue(btnInfo2, (snapshot) => {
         let infocar2 = snapshot.val()
         infocar3 = Object.values(infocar2);
@@ -20,7 +20,7 @@ function IPT() {
         }, 5000);
     });
   return asyncData ?
-    <div className="">
+    <div id='east' className="">
         {infocar.map(post =>
         <InfoPrase post={post} key={post.id}/>  
         )}
