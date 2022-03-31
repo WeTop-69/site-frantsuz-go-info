@@ -9,7 +9,13 @@ function IPTA() {
     const btnInfo2 = ref(dbRef, 'trips/completed');
     onValue(btnInfo2, (snapshot) => {
         let infocar2 = snapshot.val()
-        infocar3 = Object.values(infocar2);
+        let her = 0 
+        if (her == infocar2){
+
+        } else{
+            her = infocar2
+            infocar3 = Object.values(infocar2);
+        }
     });
     const [asyncData, setAsyncData] = useState(null);
     const [infocar, setInfo] = useState();
