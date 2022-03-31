@@ -9,17 +9,7 @@ import PDFFile from './pdffilecreate';
 import { getDatabase, onValue, ref } from 'firebase/database';
 
 function InfoCar(props, data) {
-  let infocar3 = []
-    const dbRef =  getDatabase();
-    const btnInfo2 = ref(dbRef, 'trips/completed');
-    onValue(btnInfo2, (snapshot) => {
-        let infocar2 = snapshot.val()
-        infocar3 = Object.values(infocar2);
-    });
-    const [infocar, setInfo] = useState();
-    setTimeout(() => {
-        setInfo(infocar3);
-    }, 5000);
+
   function sayHi() {
     var bb = document.querySelector('#loader');
     bb.className = 'loader-position none';
@@ -82,7 +72,7 @@ function InfoCar(props, data) {
         <div className="info-block-conteiner">
           <div className="name-page-dunload">
             <div className="name-page">История заказов</div>
-            <div onClick={(e) => PDFFile(infocar)} className="dounload-bbtn">
+            <div onClick={(e) => PDFFile()} className="dounload-bbtn">
               <img className='img-dow' src={dow} alt="" />
             </div>
           </div>
