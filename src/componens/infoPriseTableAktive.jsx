@@ -13,7 +13,6 @@ function IPTA() {
     });
     const [asyncData, setAsyncData] = useState(null);
     let infocar = infocar3
-    console.log(infocar)
     useEffect(() => {
         setTimeout(() => {
             setAsyncData("something");

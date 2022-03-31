@@ -625,7 +625,7 @@ a{
 }
 .table-block-info{
   overflow: auto;
-  height: 90vh;
+  height: 85vh;
 }
 .type-name-info{
   display: flex;
@@ -749,4 +749,19 @@ a{
   border: 1px solid #A3A3A3;
   margin-top: -35px;
   margin-left: -10px;
+}
+.name-page-dunload{
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+.name-page{
+  font-size: 17px;
+  color: #A3A3A3;
+}
+.img-dow{
+  fill: #A3A3A3;
+  width: 30px;
+  height: 30px;
 }

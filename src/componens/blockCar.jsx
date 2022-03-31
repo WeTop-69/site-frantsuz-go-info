@@ -85,6 +85,25 @@ function BlockCar() {
         free : true,
         model: "Lada Granta чёрная",
         }); 
+
+        const dbRef1 = ref(getDatabase());
+        let btnInfo1 = []
+        let btnInfo12 = []
+        let btnInfo33 = {}
+        get(child(dbRef1, `trips/current`)).then((snapshot) => {
+          btnInfo1 = Object.values(snapshot.val());
+        })
+        get(child(dbRef1, `trips/completed`)).then((snapshot) => {
+          btnInfo12 = Object.values(snapshot.val());
+        })
+        setTimeout(() => {
+          let current = btnInfo1
+          let completed = btnInfo12
+          let huy = current.filter((her44) => her44.carNumber == 'E347YK')[0]
+          completed.push(huy)
+          current.splice(current.indexOf(huy), 1)
+          set(ref(db, 'trips'), { completed, current}); 
+      }, 1000);
       }
     })
   };

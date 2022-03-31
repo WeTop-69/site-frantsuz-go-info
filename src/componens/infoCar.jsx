@@ -1,15 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import logo from '../image/Group 1024.svg'
 import TabelCar from './tabelCar';
-import sertch from '../image/Vector (2).svg'
-import histori from '../image/Vector (1).svg'
-import filter from '../image/Vector.svg'
-import { Link } from 'react-router-dom';
 import Loader from './loader';
-import InfoPrase from './infoPrase';
 import IPT from './infoPriseTable';
 import IPTA from './infoPriseTableAktive';
+import dow from '../image/downloading_black_24dp.svg'
+import PDFFile from './pdffilecreate';
+import { getDatabase, onValue, ref } from 'firebase/database';
+
 function InfoCar(props, data) {
+  let infocar3 = []
+    const dbRef =  getDatabase();
+    const btnInfo2 = ref(dbRef, 'trips/completed');
+    onValue(btnInfo2, (snapshot) => {
+        let infocar2 = snapshot.val()
+        infocar3 = Object.values(infocar2);
+    });
+    const [infocar, setInfo] = useState();
+    setTimeout(() => {
+        setInfo(infocar3);
+    }, 5000);
   function sayHi() {
     var bb = document.querySelector('#loader');
     bb.className = 'loader-position none';
@@ -70,6 +80,12 @@ function InfoCar(props, data) {
         <div id='infoBlocCar' className="info-bloc-car">
         </div>
         <div className="info-block-conteiner">
+          <div className="name-page-dunload">
+            <div className="name-page">История заказов</div>
+            <div onClick={(e) => PDFFile(infocar)} className="dounload-bbtn">
+              <img className='img-dow' src={dow} alt="" />
+            </div>
+          </div>
           <div className="type-conteiner">
             <div className="type-name-info">
               <div className="type-info namber-prise">НОМЕР</div>
