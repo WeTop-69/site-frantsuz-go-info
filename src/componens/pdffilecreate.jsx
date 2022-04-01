@@ -8,10 +8,11 @@ function PDFFile(infocar) {
     get(child(dbRef1, `trips/completed`)).then((snapshot) => {
         btnInfo1 = Object.values(snapshot.val());
       })
+
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
     setTimeout(() => {
         const her = btnInfo1.map((btnInfo) => {
-            return [btnInfo.carNumber, 'Имя водителя', btnInfo.address, btnInfo.price]
+            return [btnInfo.carNumber, 'Имя водителя', btnInfo.address,String(new Date(btnInfo.date)), btnInfo.price]
         })
         const repotrTitle = [
             {
@@ -21,10 +22,11 @@ function PDFFile(infocar) {
                 margin: [15, 20,0, 45]
             },
             {
+                fontSize: 10,
                 table: {
-                    widths: ['*','*','*','*'],
+                    widths: ['*','*','*','*','*'],
                     body: [
-                        ['Номер машины', 'Имя водителя', 'Адрес', 'Цена'],
+                        ['Номер машины', 'Имя водителя', 'Адрес','Дата/Время', 'Цена'],
                         ...her
                     ]
                 }
