@@ -294,7 +294,7 @@ input, textarea, select {
   color: #2C2C2D !important;
 }
 .text-actv15{
-  margin-right: 16px !important;
+  margin-right: 18px !important;
 }
 .text-actv3{
   font-size: 13px !important;
@@ -321,7 +321,7 @@ input, textarea, select {
   margin-top: 10px;
   float: right;
   font-size: 10.5px;
-  margin-right: 10px;
+  margin-right: 13.2px;
 }
 .btn-blok{
   justify-content: space-between;

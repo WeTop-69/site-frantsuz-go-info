@@ -15,7 +15,7 @@ function IPT() {
             i = infocar4
             setTimeout(() => {
                 setInfo(infocar3 = infocar4);
-            }, 1000);
+            }, 2000);
         }
     });
     console.log(infocar)

@@ -17,7 +17,7 @@ function IPTA() {
             i = infocar4
             setTimeout(() => {
                 setInfo(infocar3 = infocar4);
-            }, 3000);
+            }, 5000);
         }
     });
     console.log(infocar)
