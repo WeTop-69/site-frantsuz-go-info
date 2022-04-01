@@ -1,37 +1,29 @@
-import { ref, onValue, getDatabase } from 'firebase/database';
+import { ref, onValue, getDatabase, connectDatabaseEmulator } from 'firebase/database';
 import React, { Suspense, useEffect, useState } from 'react';
 import InfoPrase from './infoPrase';
-
-
+let i =[];
+let infocar3 = []
 function IPT() {
-    let infocar3 = []
     const dbRef =  getDatabase();
     const btnInfo2 = ref(dbRef, 'trips/current');
+    const [infocar, setInfo] = useState(infocar3)
     onValue(btnInfo2, (snapshot) => {
         let infocar2 = snapshot.val()
-        let her = 0 
-        if (her == infocar2){
-
-        } else{
-            her = infocar2
-            infocar3 = Object.values(infocar2);
+        let infocar4 = Object.values(infocar2)
+        if (i.length == infocar4.length){
+        } else {
+            i = infocar4
+            setTimeout(() => {
+                setInfo(infocar3 = infocar4);
+            }, 1000);
         }
     });
-    const [asyncData, setAsyncData] = useState(null);
-    const [infocar, setInfo] = useState();
-    setTimeout(() => {
-        setInfo(infocar3);
-    }, 5000);
-    useEffect(() => {
-        setTimeout(() => {
-            setAsyncData("something");
-        }, 5000);
-    });
-  return asyncData ?
+    console.log(infocar)
+  return (
     <div id='east' className="">
         {infocar.map(post =>
         <InfoPrase post={post} key={post.id}/>  
         )}
-    </div>: <div></div>
-  }
+    </div>
+  )}
 export default IPT;
