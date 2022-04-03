@@ -3,9 +3,24 @@ import ReactDOM from 'react-dom';
 import car from '../image/pngwing 64.png'
 import carDesi from '../image/pngwing 59.png'
 import { child, get, getDatabase, onValue, ref, set} from "firebase/database";
-
+let infocar3 = []
+    let i =[]
 
 function Car3() {
+  const dbRef3 =  getDatabase();
+  const btnInfo25 = ref(dbRef3, 'driver/P095YK/driverName');
+  const [infocar, setInfo] = useState(infocar3)
+  onValue(btnInfo25, (snapshot) => {
+      let infocar2 = snapshot.val()
+      let infocar4 = Object.values(infocar2)
+      if (i == infocar2){
+      } else {
+          i = infocar2
+          setTimeout(() => {
+              setInfo(infocar3 = infocar2);
+          }, 2000);
+      }
+  });
   const [namecar, cinstnam] = useState('');
   const dbRef = getDatabase();
   const btnInfo2 = ref(dbRef, 'cars/P095YK/carNumber');
@@ -121,7 +136,7 @@ function Car3() {
   }
      return (
       <div className="rast-blok">
-        <div id="blockCarColor3" onClick={infoBlockCarFree} className="BlockCar">
+        <div id="blockCarColor3" className="BlockCar">
             <div className="block-car-btn">
               <img id="carDesOne3" className="image-car none" src={car} alt="" />
               <img id="carDesTwo3" className="image-car " src={carDesi} alt="" />

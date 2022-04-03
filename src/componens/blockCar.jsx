@@ -4,8 +4,24 @@ import carDesi from '../image/pngwing 59.png'
 import Loader from './loader';
 
 import { child, get, getDatabase, onValue, ref, set} from "firebase/database";
+let infocar3 = []
+    let i =[]
 
 function BlockCar() {
+  const dbRef3 =  getDatabase();
+    const btnInfo25 = ref(dbRef3, 'driver/E347YK/driverName');
+    const [infocar, setInfo] = useState(infocar3)
+    onValue(btnInfo25, (snapshot) => {
+        let infocar2 = snapshot.val()
+        let infocar4 = Object.values(infocar2)
+        if (i == infocar2){
+        } else {
+            i = infocar2
+            setTimeout(() => {
+                setInfo(infocar3 = infocar2);
+            }, 2000);
+        }
+    });
   const [loaded, setLoaded] = useState(false);  
   useEffect(() => {
     setLoaded(true);
@@ -63,7 +79,7 @@ function BlockCar() {
       document.getElementById('infoCar').innerHTML = her2;
       set(ref(db, 'cars/E347YK'), {
         carNumber: "E347YK",
-        driverName: "Никита",
+        driverName: infocar,
         free : false,
         model: "Lada Granta чёрная",
       });
@@ -81,7 +97,7 @@ function BlockCar() {
       document.getElementById('infoCar').innerHTML = her2;
       set(ref(db, 'cars/E347YK'), {
         carNumber: "E347YK",
-        driverName: "Никита",
+        driverName: infocar,
         free : true,
         model: "Lada Granta чёрная",
         }); 
@@ -107,26 +123,11 @@ function BlockCar() {
       }
     })
   };
-  var blocBlac = false;
-  function infoBlockCarFree() {
-    if (blocBlac == false){
-      var bb = document.querySelector('#blockBlack');
-      bb.className = 'block-black block';
-      var ibc = document.querySelector('#infoBlocCar');
-      ibc.className = 'info-bloc-car block';
-      blocBlac = true
-    } else{
-      var bb = document.querySelector('#blockBlack');
-      bb.className = 'block-black';
-      var ibc = document.querySelector('#infoBlocCar');
-      ibc.className = 'info-bloc-car';
-      blocBlac = false
-    }
-  }
+
   if (!loaded) return <Loader />;
    return (
     <div className="rast-blok">
-        <div id="blockCarColor" onClick={infoBlockCarFree} className="BlockCar">
+        <div id="blockCarColor" className="BlockCar">
             <div className="block-car-btn">
               <img id="carDesOne" className="image-car none" src={car} alt="" />
               <img id="carDesTwo" className="image-car " src={carDesi} alt="" />
