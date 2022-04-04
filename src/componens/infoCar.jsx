@@ -61,7 +61,6 @@ function InfoCar(props, data) {
     let her4545 = myDate + ':'+ myTime
     let chlen = Date.parse(String(her4545))
     timeDate = chlen
-    console.log(timeDate)
   };
 
 
@@ -80,7 +79,6 @@ function InfoCar(props, data) {
     let her4545 = myDate1 + ':'+ myTime1
     let chlen = Date.parse(String(her4545))
     timeDate2 = new Date(chlen)
-    console.log(timeDate2)
   };
 
   }, 2000);

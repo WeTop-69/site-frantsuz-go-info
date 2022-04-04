@@ -7,10 +7,7 @@ function PDFFile(timeDate, timeDate2) {
     const dbRef1 = ref(getDatabase());
     get(child(dbRef1, `trips/completed`)).then((snapshot) => {
         let btnInfo2 = Object.values(snapshot.val());
-        btnInfo1 = btnInfo2.filter((her443) => timeDate < her443.date && her443.date < timeDate2)
-        console.log(timeDate)
-        console.log(timeDate2)
-        console.log(btnInfo1)
+        btnInfo1 = btnInfo2.filter((her443) => timeDate <= her443.date && her443.date <= timeDate2)
       })
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
     setTimeout(() => {
