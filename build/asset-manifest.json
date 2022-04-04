@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/site-frantsuz-go-info/static/css/main.e3c01d33.css",
-    "main.js": "/site-frantsuz-go-info/static/js/main.7bc13c82.js",
+    "main.js": "/site-frantsuz-go-info/static/js/main.d944eb45.js",
     "static/js/787.82d1d9e6.chunk.js": "/site-frantsuz-go-info/static/js/787.82d1d9e6.chunk.js",
     "static/media/nickelodeon2001headline.ttf": "/site-frantsuz-go-info/static/media/nickelodeon2001headline.8e78c9b77628befa8612.ttf",
     "static/media/pngwing 64.png": "/site-frantsuz-go-info/static/media/pngwing 64.5c7ead72b4821a81214e.png",
@@ -15,11 +15,11 @@
     "index.html": "/site-frantsuz-go-info/index.html",
     "static/media/downloading_black_24dp.svg": "/site-frantsuz-go-info/static/media/downloading_black_24dp.b239872b75fa3eea2fa73f0cf11ebc39.svg",
     "main.e3c01d33.css.map": "/site-frantsuz-go-info/static/css/main.e3c01d33.css.map",
-    "main.7bc13c82.js.map": "/site-frantsuz-go-info/static/js/main.7bc13c82.js.map",
+    "main.d944eb45.js.map": "/site-frantsuz-go-info/static/js/main.d944eb45.js.map",
     "787.82d1d9e6.chunk.js.map": "/site-frantsuz-go-info/static/js/787.82d1d9e6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e3c01d33.css",
-    "static/js/main.7bc13c82.js"
+    "static/js/main.d944eb45.js"
   ]
 }
