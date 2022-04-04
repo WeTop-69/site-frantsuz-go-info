@@ -74,7 +74,7 @@ function Car2() {
       document.getElementById('infoCar2').innerHTML = her2;
       set(ref(db, 'cars/E461YK'), {
         carNumber: "E461YK",
-        driverName: "Дима",
+        driverName: infocar,
         free : false,
         model: "Lada Granta красная",
       });
@@ -92,7 +92,7 @@ function Car2() {
       document.getElementById('infoCar2').innerHTML = her2;
       set(ref(db, 'cars/E461YK'), {
         carNumber: "E461YK",
-        driverName: "Дима",
+        driverName: infocar,
         free : true,
         model: "Lada Granta красная",
         }); 

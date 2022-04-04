@@ -74,7 +74,7 @@ function Car4() {
       document.getElementById('infoCar4').innerHTML = her2;
       set(ref(db, 'cars/P769YT'), {
         carNumber: "P769YT",
-        driverName: "Даня",
+        driverName: infocar,
         free : false,
         model: "Lada Granta жёлтая",
       });
@@ -92,7 +92,7 @@ function Car4() {
       document.getElementById('infoCar4').innerHTML = her2;
       set(ref(db, 'cars/P769YT'), {
         carNumber: "P769YT",
-        driverName: "Даня",
+        driverName: infocar,
         free : true,
         model: "Lada Granta жёлтая",
         }); 
