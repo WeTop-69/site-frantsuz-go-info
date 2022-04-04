@@ -80,7 +80,7 @@ function InfoCar(props, data) {
             <div className="type-name-info">
               <div className="type-info namber-prise">НОМЕР</div>
               <div className="type-info namber-prise">ДАТА/ВРЕМЯ</div>
-              <div className="type-info namber-prise">ФИО</div>
+              <div className="type-info namber-prise nameDR">ФИО</div>
               <div className="type-info adres">АДРЕС</div>
               <div className="type-info prise">ЦЕНА</div>
             </div>

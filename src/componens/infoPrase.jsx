@@ -14,7 +14,7 @@ function InfoPrase(props) {
     <div className="info-prise">
         <div className="item-info-prise namber-prise">{props.post.carNumber}</div>
         <div className="item-info-prise namber-prise date">{her}</div>
-        <div className="item-info-prise adres">{props.post.driverName}</div>
+        <div className="item-info-prise namber-prise nameDR">{props.post.driverName}</div>
         <div className="item-info-prise adres">{props.post.address}</div>
         <div className="item-info-prise prise">{props.post.price}</div>
     </div>
