@@ -270,6 +270,7 @@ input, textarea, select {
 .btn-histori{
   width: 55%;
   height: 37px;
+  cursor: pointer;
   border: 1px solid #A3A3A3;
   border-radius: 37px;
   background-color: #2C2C2D;
@@ -312,6 +313,7 @@ input, textarea, select {
 .btn-filter{
   width: 33%;
   height: 37px;
+  cursor: pointer;
   border: 1px solid #A3A3A3;
   border-radius: 37px;
   margin-right: 20px;
@@ -768,4 +770,24 @@ a{
 }
 .nameDR{
   width: 150px !important;
+}
+.inpt-date-time{
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  background-color: #363636;
+  border: 1px solid #A3A3A3;
+  border-radius: 30px;
+  align-items: center;
+}
+.inpt-date{
+  background-color: #363636;
+  border: 0;
+}
+.inpt-time{
+  background-color: #363636;
+  border: 0;
+}
+.data-ot-do{
+  color: #A3A3A3;
+  font-size: 14px;
 }

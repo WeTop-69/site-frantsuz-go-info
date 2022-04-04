@@ -43,6 +43,47 @@ function InfoCar(props, data) {
       var cdo6 = document.querySelector('#text-diss');
       cdo6.className = 'text-histori text-actv3';
   }
+  let timeDate = 1640984400000
+  let timeDate2 = 33545048460000
+  let myDate = 0
+  let myTime = 0
+  setTimeout(() => {
+  let date1 = document.getElementById("date-inpt1");
+  let time1 = document.getElementById("time-inpt1");
+  date1.oninput = function() {
+    myDate = date1.value
+    let her4545 = myDate + ':'+ myTime
+    let chlen = Date.parse(String(her4545))
+    timeDate = chlen
+  };
+  time1.oninput = function() {
+    myTime = time1.value
+    let her4545 = myDate + ':'+ myTime
+    let chlen = Date.parse(String(her4545))
+    timeDate = chlen
+    console.log(timeDate)
+  };
+
+
+  let myDate1 = 0
+  let myTime1 = 0
+  let date2 = document.getElementById("date-inpt2");
+  let time2 = document.getElementById("time-inpt2");
+  date2.oninput = function() {
+    myDate1 = date2.value
+    let her4545 = myDate1 + ':'+ myTime1
+    let chlen = Date.parse(String(her4545))
+    timeDate2 = chlen
+  };
+  time2.oninput = function() {
+    myTime1 = time2.value
+    let her4545 = myDate1 + ':'+ myTime1
+    let chlen = Date.parse(String(her4545))
+    timeDate2 = new Date(chlen)
+    console.log(timeDate2)
+  };
+
+  }, 2000);
   return (
     <div className="main">
       <div id='loader' className="loader-position">
@@ -72,7 +113,17 @@ function InfoCar(props, data) {
         <div className="info-block-conteiner">
           <div className="name-page-dunload">
             <div className="name-page">История заказов</div>
-            <div onClick={(e) => PDFFile()} className="dounload-bbtn">
+            <div className='inpt-date-time'>
+              <div className='data-ot-do'>ОТ:</div>
+              <input id="date-inpt1" type="date" className='inpt-date'/>
+              <input id="time-inpt1" type="time" className='inpt-time'/>
+            </div>
+            <div className='inpt-date-time'>
+              <div className='data-ot-do'>ДО:</div>
+              <input id="date-inpt2" type="date" className='inpt-date'/>
+              <input id="time-inpt2" type="time" className='inpt-time'/>
+            </div>
+            <div onClick={(e) => PDFFile(timeDate, timeDate2)} className="dounload-bbtn">
               <img className='img-dow' src={dow} alt="" />
             </div>
           </div>

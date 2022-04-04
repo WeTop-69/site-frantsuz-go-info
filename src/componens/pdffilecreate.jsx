@@ -2,17 +2,20 @@ import pdfMake from 'pdfmake/build/pdfmake'
 import pdfFonts from 'pdfmake/build/vfs_fonts'
 import { ref, onValue, getDatabase, connectDatabaseEmulator, get, child } from 'firebase/database';
   
-function PDFFile(infocar) {
+function PDFFile(timeDate, timeDate2) {
     let btnInfo1 = []
     const dbRef1 = ref(getDatabase());
     get(child(dbRef1, `trips/completed`)).then((snapshot) => {
-        btnInfo1 = Object.values(snapshot.val());
+        let btnInfo2 = Object.values(snapshot.val());
+        btnInfo1 = btnInfo2.filter((her443) => timeDate < her443.date && her443.date < timeDate2)
+        console.log(timeDate)
+        console.log(timeDate2)
+        console.log(btnInfo1)
       })
-
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
     setTimeout(() => {
         const her = btnInfo1.map((btnInfo) => {
-            return [btnInfo.carNumber, 'Имя водителя', btnInfo.address,String(new Date(btnInfo.date)), btnInfo.price]
+            return [btnInfo.carNumber, btnInfo.driverName, btnInfo.address,String(new Date(btnInfo.date)), btnInfo.price]
         })
         const repotrTitle = [
             {
