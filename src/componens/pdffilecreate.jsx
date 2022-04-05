@@ -2,12 +2,56 @@ import pdfMake from 'pdfmake/build/pdfmake'
 import pdfFonts from 'pdfmake/build/vfs_fonts'
 import { ref, onValue, getDatabase, connectDatabaseEmulator, get, child } from 'firebase/database';
   
-function PDFFile(timeDate, timeDate2) {
+function PDFFile(timeDate, timeDate2, carP) {
     let btnInfo1 = []
     const dbRef1 = ref(getDatabase());
     get(child(dbRef1, `trips/completed`)).then((snapshot) => {
-        let btnInfo2 = Object.values(snapshot.val());
-        btnInfo1 = btnInfo2.filter((her443) => timeDate <= her443.date && her443.date <= timeDate2)
+        if (carP == 'Выберете машину'){
+            if (isNaN(timeDate) == true && isNaN(timeDate2) == true){
+                btnInfo1 = Object.values(snapshot.val());
+            } else {
+                if (isNaN(timeDate) == true){
+                    timeDate = 1640984400000
+                    let btnInfo2 = Object.values(snapshot.val());
+                    btnInfo1 = btnInfo2.filter((her443) => timeDate <= her443.date && her443.date <= timeDate2)
+                } else {
+                    if (isNaN(timeDate2) == true){
+                        timeDate2 = 33545048460000
+                        let btnInfo2 = Object.values(snapshot.val());
+                        btnInfo1 = btnInfo2.filter((her443) => timeDate <= her443.date && her443.date <= timeDate2)
+                    } else {
+                        let btnInfo2 = Object.values(snapshot.val());
+                        btnInfo1 = btnInfo2.filter((her443) => timeDate <= her443.date && her443.date <= timeDate2)
+                    }
+                }
+            }
+        } else{
+            if (isNaN(timeDate) == true && isNaN(timeDate2) == true){
+                let btnInfo2 = Object.values(snapshot.val());
+                btnInfo1 = btnInfo2.filter((her444) => her444.carNumber == carP)
+            } else {
+                if (isNaN(timeDate) == true){        
+                    timeDate = 1640984400000
+                    let btnInfo2 = Object.values(snapshot.val());
+                    let btnInfo3  = btnInfo2.filter((her443) => timeDate <= her443.date && her443.date <= timeDate2)
+                    btnInfo3 = btnInfo3.filter((her444) => her444.carNumber == carP)
+                } else {
+                    if (isNaN(timeDate2) == true){
+                        timeDate2 = 33545048460000
+                        let btnInfo2 = Object.values(snapshot.val());
+                        let btnInfo3 = btnInfo2.filter((her443) => timeDate <= her443.date && her443.date <= timeDate2)
+                        btnInfo1 = btnInfo3.filter((her444) => her444.carNumber == carP)
+                    } else {
+                        let btnInfo2 = Object.values(snapshot.val());
+                        let btnInfo3 = btnInfo2.filter((her443) => timeDate <= her443.date && her443.date <= timeDate2)
+                        btnInfo1 = btnInfo3.filter((her444) => her444.carNumber == carP)
+                    }
+                }
+            }
+            let btnInfo2 = Object.values(snapshot.val());
+            let btnInfo3 = btnInfo2.filter((her443) => timeDate <= her443.date && her443.date <= timeDate2)
+            btnInfo1 = btnInfo3.filter((her444) => her444.carNumber == carP)
+        }
       })
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
     setTimeout(() => {

@@ -43,6 +43,19 @@ function InfoCar(props, data) {
       var cdo6 = document.querySelector('#text-diss');
       cdo6.className = 'text-histori text-actv3';
   }
+  let selectHer2 = true
+  function selectHer() {
+    if(selectHer2 == true){
+      var cdo6 = document.querySelector('#selectCar');
+      cdo6.className = 'select-car sele';
+      selectHer2 = false
+    } else {
+      var cdo6 = document.querySelector('#selectCar');
+      cdo6.className = 'select-car';
+      selectHer2 = true
+    }
+  }
+  let carP = 'Выберете машину'
   let timeDate = 1640984400000
   let timeDate2 = 33545048460000
   let myDate = 0
@@ -55,6 +68,7 @@ function InfoCar(props, data) {
     let her4545 = myDate + ':'+ myTime
     let chlen = Date.parse(String(her4545))
     timeDate = chlen
+    console.log(timeDate)
   };
   time1.oninput = function() {
     myTime = time1.value
@@ -81,6 +95,12 @@ function InfoCar(props, data) {
     timeDate2 = new Date(chlen)
   };
 
+  let myCar = 0
+  let Car = document.getElementById("selectCar");
+  Car.oninput = function() {
+    myCar = Car.value
+    carP = myCar
+  };
   }, 2000);
   return (
     <div className="main">
@@ -88,9 +108,10 @@ function InfoCar(props, data) {
         <Loader />
       </div>
         <div className='blok-car'>
-        <a href='https://wetop-69.github.io/site-frantsuz-go/' className="name-site">
+          <a href='https://wetop-69.github.io/site-frantsuz-go/' className="name-site">
             <img className='logo' src={logo}/>
           </a>
+          <h2 className='histir-tripl'>История заказов</h2>
           <div className="btn-blok">
             <div  onClick={her34} id="her34" className="btn-histori actv">
                 <div className='btn-text text-actv'>
@@ -110,7 +131,15 @@ function InfoCar(props, data) {
         </div>
         <div className="info-block-conteiner">
           <div className="name-page-dunload">
-            <div className="name-page">История заказов</div>
+          <select onClick={selectHer} className='select-car' id='selectCar'>
+            <option>Выберете машину</option>
+            <option>E347YK</option>
+            <option>E423YK</option>
+            <option>E461YK</option>
+            <option>P095YK</option>
+            <option>P769YT</option>
+            <option>C051AK</option>
+          </select>
             <div className='inpt-date-time'>
               <div className='data-ot-do'>ОТ:</div>
               <input id="date-inpt1" type="date" className='inpt-date'/>
@@ -121,7 +150,7 @@ function InfoCar(props, data) {
               <input id="date-inpt2" type="date" className='inpt-date'/>
               <input id="time-inpt2" type="time" className='inpt-time'/>
             </div>
-            <div onClick={(e) => PDFFile(timeDate, timeDate2)} className="dounload-bbtn">
+            <div onClick={(e) => PDFFile(timeDate, timeDate2, carP)} className="dounload-bbtn">
               <img className='img-dow' src={dow} alt="" />
             </div>
           </div>
