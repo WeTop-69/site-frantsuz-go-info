@@ -53,6 +53,15 @@ function PDFFile(timeDate, timeDate2, carP) {
             btnInfo1 = btnInfo3.filter((her444) => her444.carNumber == carP)
         }
       })
+      let priseCar
+      setTimeout(() => {
+      let priseCar2 = btnInfo1.map((her445) => {
+        return her445.price
+      })
+      priseCar = priseCar2.reduce(function(sum, current) {
+        return sum + current;
+      }, 0);
+        }, 1000);
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
     setTimeout(() => {
         const her = btnInfo1.map((btnInfo) => {
@@ -66,6 +75,18 @@ function PDFFile(timeDate, timeDate2, carP) {
                 margin: [15, 20,0, 45]
             },
             {
+                text: 'от:'+ new Date(timeDate),
+                fontSize: 12,
+                bold: false,
+                margin: [15, 0,0,0]
+            },
+            {
+                text:"до:"+ new Date(timeDate2),
+                fontSize: 12,
+                bold: false,
+                margin: [15, 20,0, 10]
+            },
+            {
                 fontSize: 10,
                 table: {
                     widths: ['*','*','*','*','*'],
@@ -74,6 +95,12 @@ function PDFFile(timeDate, timeDate2, carP) {
                         ...her
                     ]
                 }
+            },
+            {
+                text:"Итог:"+ priseCar,
+                fontSize: 12,
+                bold: false,
+                margin: [15, 20,0, 10]
             }
     
         ];
