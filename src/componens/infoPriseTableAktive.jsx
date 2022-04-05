@@ -25,7 +25,7 @@ function IPTA() {
     <div id='netu' className="none">
         {infocar.map(post =>
         <InfoPrase post={post} key={post.b}/>  
-        )}
+        ).reverse()}
     </div>
   )}
 export default IPTA;
