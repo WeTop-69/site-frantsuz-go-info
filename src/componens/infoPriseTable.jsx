@@ -23,7 +23,7 @@ function IPT() {
     <div id='east' className="">
         {infocar.map(post =>
         <InfoPrase post={post} key={post.id}/>  
-        )}
+        ).reverse()}
     </div>
   )}
 export default IPT;
